@@ -81,7 +81,7 @@ function isOddAndSmall (number){
 //const add3 = (a, b, c) => a + b + c;
 
 function add3 (a,b,c) {
-  a+b+c;
+  return a+b+c;
 
 }
 
@@ -89,5 +89,5 @@ function add3 (a,b,c) {
 
 function repeat10 (string){
 
-  string.repeat(10);
+  return= string.repeat(10);
 }
