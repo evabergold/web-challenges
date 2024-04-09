@@ -16,10 +16,12 @@ pizzaInput1.addEventListener("input", () => {
   updateOutputColor(pizzaSize1, pizzaSize2);
 });
 
+
+
 pizzaInput2.addEventListener("input", () => {
   let pizzaSize1 = pizzaInput1.value;
   let pizzaSize2 = pizzaInput2.value;
-
+  
   updatePizzaDisplay(pizza2, pizzaSize2);
   updateOutputColor(pizzaSize1, pizzaSize2);
 });
@@ -52,6 +54,8 @@ function updatePizzaDisplay(pizzaElement, newSize) {
   let newDisplaySize = (newSize / 24) * 100;
   pizzaElement.style.width = newDisplaySize + "px";
 }
+
+
 
 // Task 3
 // define the function updateOutputColor here
