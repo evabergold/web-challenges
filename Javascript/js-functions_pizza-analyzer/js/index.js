@@ -11,11 +11,15 @@ const output = document.querySelector('[data-js="output"]');
 pizzaInput1.addEventListener("input", () => {
   let pizzaSize1 = pizzaInput1.value;
   let pizzaSize2 = pizzaInput2.value;
+
+  updatePizzaDisplay(pizza1, pizzaSize1);
 });
 
 pizzaInput2.addEventListener("input", () => {
   let pizzaSize1 = pizzaInput1.value;
   let pizzaSize2 = pizzaInput2.value;
+
+  updatePizzaDisplay(pizza2, pizzaSize2);
 });
 
 // Task 1
@@ -40,6 +44,12 @@ calculatePizzaGain(pizzaInput1.value, pizzaInput2.value);
 
 // Task 2
 // define the function updatePizzaDisplay here
+
+function updatePizzaDisplay(pizzaElement, newSize) {
+
+  let newDisplaySize = (newSize / 24) * 100;
+  pizzaElement.style.width = newDisplaySize + "px";
+}
 
 // Task 3
 // define the function updateOutputColor here
