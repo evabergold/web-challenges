@@ -26,8 +26,7 @@ const box = document.querySelector('[data-js="box"]');
 color.addEventListener("input", () => {
 
     console.log("color changed "+ color.value);
-    const hue = color.value;
-    box.style.backgroundColor = `hsl(${hue}, 100%, 50%)`;
+    box.style.backgroundColor = `hsl(${color.value}, 100%, 50%)`;
 
     
   });
@@ -35,8 +34,7 @@ color.addEventListener("input", () => {
 radius.addEventListener("input", () => {
 
     console.log("radius changed "+ radius.value);
-    const borderRadius =radius.value;
-    box.style.borderRadius=`${borderRadius}%`;
+    box.style.borderRadius=`${radius.value}%`;
     
     
   });
@@ -44,6 +42,6 @@ radius.addEventListener("input", () => {
 rotation.addEventListener("input", () => {
 
     console.log("rotation changed "+ rotation.value);
-    
+    box.style.transform = `rotate(${rotation.value}deg)`;
     
   });
