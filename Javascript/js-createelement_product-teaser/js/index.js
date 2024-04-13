@@ -51,9 +51,12 @@ document.body.append(newProduct);
 const buyButtonSecondProduct = document.querySelectorAll('.product__buy-button')[1]; 
 
 buyButtonSecondProduct.addEventListener('click', function() {
+
     
     const productName = document.querySelectorAll('.product__name')[1].textContent; 
     const productPrice = document.querySelectorAll('.product__price')[1].textContent; 
+
+
     console.log("Product Name:", productName);
     console.log("Product Price:", productPrice);
 });
