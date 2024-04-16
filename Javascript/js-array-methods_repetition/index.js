@@ -58,7 +58,8 @@ console.log(timePerServing);
 // HINT: use first map() and then Array.prototype.join() with "method chaining" like so:
 // myArray.map(...).join(', ');
 
-const allTitlesInOneString = recipes.map((recipe) => recipe.title); 
+const allTitlesInOneString = recipes.map(recipe =>  recipe.title).join(', ');
+console.log("String : '" + allTitlesInOneString + "'");
 
 
 // 'Crepes, Scrambled Eggs, ...'
@@ -70,7 +71,8 @@ const allTitlesInOneString = recipes.map((recipe) => recipe.title);
  2: `filter` exercises
 */
 
-const recipesThatOnlyTake60minutesOrLess = null;
+const recipesThatOnlyTake60minutesOrLess = recipes.filter((recipe)=> recipe.duration < 60);
+console.log ("Recipes that take 60 minutes or less: " +  recipesThatOnlyTake60minutesOrLess);
 
 const allRecipesWithMoreThan2Servings = null;
 
