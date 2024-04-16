@@ -31,11 +31,13 @@ const lowerCaseAnswers = cards.map((card) => {
 console.log(lowerCaseAnswers);
 
 const questionsAndAnswersTogether = cards.map((card) =>{
+
 return card.question + " " +  card.answer;
+
+
 
 }); // ["How often can I use <header>? - As often as you like.", ...]
 console.log(questionsAndAnswersTogether);
-
 
 const questionAndAnswer = cards.map((card) => {
   return "question: " + card.question + " answer: " + card.answer;
