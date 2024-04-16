@@ -36,12 +36,10 @@ form.addEventListener("submit", (event) => {
   if (operator === "addition") {
     result = add(numberA, numberB);
     console.log (result);
- 
   
   } else if (operator === "subtraction") {
     result = subtract(numberA, numberB);
     console.log (result);
-   
   
   }
 
