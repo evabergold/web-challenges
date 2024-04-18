@@ -93,16 +93,38 @@ console.log("Index of animal with name longer than 5: " , indexOfAnimalWithNameL
 // Hint: sort() mutates the original array, which is bad.
 // -> Use animals.slice().sort(...) to make a copy (and the tests work).
 
-const animalsSortedAlphabetically = null;
+const animalsSortedAlphabetically = animals.slice().sort((a, b) =>{
 
-const animalsSortedByWeightStartingWithLowest = null;
+  const nameA = a.name.toLowerCase();
+  const nameB = b.name.toLowerCase();
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+  return 0;
+});
 
-const animalsSortedByWeightReversed = null;
+console.log("Animals sorted alphabetically: ", animalsSortedAlphabetically);
 
-const animalWithWeightMoreThanFivehundredExists = null;
+
+
+const animalsSortedByWeightStartingWithLowest = animals.slice().sort((a, b) => a.weight - b.weight);
+console.log("Animals sorted by weight: ", animalsSortedByWeightStartingWithLowest);
+
+
+const animalsSortedByWeightReversed = animals.slice().sort((a, b) => b.weight - a.weight);
+console.log("Animals sorted by weight reversed: ", animalsSortedByWeightReversed);
+
+const animalWithWeightMoreThanFivehundredExists = animals.some(animal => animal.weight > 500);
+console.log ("Animal with weight more than 500 exists? " , animalWithWeightMoreThanFivehundredExists);
+
 
 // Hint: Filter for Europe first, then check every animal for its weight.
-const allAnimalsInEuropeWeighLessThanOnehundred = null;
+const allAnimalsInEuropeWeighLessThanOnehundred = animals
+  .filter(animal => animal.continents.includes("Europe")).every(animal => animal.weight < 100); 
+console.log ("All animals in Europe that weigh less than 100: ", allAnimalsInEuropeWeighLessThanOnehundred  );
 
 // Hint: filter + map + reduce
 const weightOfAllAnimalsInAfrica = null;
