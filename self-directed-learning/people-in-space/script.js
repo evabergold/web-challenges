@@ -24,3 +24,31 @@ function renderPeople(people) {
     ul.append(listElement);
   });
 }
+
+const buttonAll = createButton("All");
+const buttonISS = createButton("ISS");
+const buttonTiangong = createButton("Tiangong");
+
+document.body.append(buttonAll);
+document.body.append(buttonISS);
+document.body.append(buttonTiangong);
+
+function createButton(text) {
+  const button = document.createElement("button");
+  button.textContent = text;
+  button.classList.add("button");
+  button.addEventListener("click", (event) =>
+    filterPeople(event.target.textContent)
+  );
+  //return button;
+}
+
+function filterPeople(craft) {
+  let filteredPeople;
+  if (craft === "All") {
+    filteredPeople = data.people;
+  } else {
+    filteredPeople = data.people.filter((person) => person.craft === craft);
+  }
+  renderPeople(filteredPeople);
+}
