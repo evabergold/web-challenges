@@ -2,6 +2,7 @@ const numberPeople = document.querySelector('[data-js="people-in-space"]');
 console.log(numberPeople);
 console.log(document);
 const url = "http://api.open-notify.org/astros.json";
+let data;
 
 async function fetchData() {
   const response = await fetch(url);
@@ -23,32 +24,51 @@ function renderPeople(people) {
     listElement.textContent = person.name;
     ul.append(listElement);
   });
+
+  const peopleOnISS = people.filter((person) => {
+    if (person.craft === "ISS") {
+      return true;
+    }
+  });
+
+  console.log("People on ISS: ", peopleOnISS);
+
+  const peopleOnTiangong = people.filter((person) => {
+    if (person.craft === "Tiangong") {
+      return true;
+    }
+  });
+
+  console.log("People on Tiangong: ", peopleOnTiangong);
 }
 
-const buttonAll = createButton("All");
-const buttonISS = createButton("ISS");
-const buttonTiangong = createButton("Tiangong");
+const buttonAll = document.createElement("button");
+buttonAll.textContent = "All";
+buttonAll.classList.add("button");
+const buttonISS = document.createElement("button");
+buttonISS.textContent = "ISS";
+buttonISS.classList.add("button");
+const buttonTiangong = document.createElement("button");
+buttonTiangong.textContent = "Tiangong";
+buttonTiangong.classList.add("button");
 
 document.body.append(buttonAll);
 document.body.append(buttonISS);
 document.body.append(buttonTiangong);
 
-function createButton(text) {
-  const button = document.createElement("button");
-  button.textContent = text;
-  button.classList.add("button");
-  button.addEventListener("click", (event) =>
-    filterPeople(event.target.textContent)
-  );
-  //return button;
-}
+buttonISS.addEventListener("click", () => {
+  renderFilteredPeople("ISS");
+});
 
-function filterPeople(craft) {
-  let filteredPeople;
-  if (craft === "All") {
-    filteredPeople = data.people;
-  } else {
-    filteredPeople = data.people.filter((person) => person.craft === craft);
-  }
+buttonTiangong.addEventListener("click", () => {
+  renderFilteredPeople("Tiangong");
+});
+
+buttonAll.addEventListener("click", () => {
+  renderPeople(data.people);
+});
+
+function renderFilteredPeople(craft) {
+  const filteredPeople = data.people.filter((person) => person.craft === craft);
   renderPeople(filteredPeople);
 }
