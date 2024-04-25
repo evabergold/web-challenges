@@ -4,6 +4,7 @@ import Entry from "../Entry";
 import Tabs from "../Tabs";
 import Tab from "../Tab";
 import Badge from "../Badge";
+import { Fragment } from "react";
 
 export default function EntriesSection() {
   return (
@@ -17,17 +18,17 @@ export default function EntriesSection() {
         </Tab>
       </Tabs>
       <div className="entries-section__entries">
-        {entries.map((entry) => {
+        {entries.map((entry, index) => {
+          const notTheLast = index < entries.length - 1;
           return (
-            <>
+            <Fragment key={entry.id}>
               <Entry
-                key={entry.id}
                 date={entry.date}
                 motto={entry.motto}
                 notes={entry.notes}
               ></Entry>
-              <Divider />
-            </>
+              {notTheLast ? <Divider /> : ""}
+            </Fragment>
           );
         })}
       </div>
