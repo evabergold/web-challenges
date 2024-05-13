@@ -1,4 +1,3 @@
-import { introduction } from "../lib/data";
 import Link from "next/link";
 
 export default function HomePage() {

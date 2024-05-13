@@ -1,10 +1,16 @@
-import { volumes } from "@/lib/data";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
+import { volumes } from "@/lib/data";
 
-export default function TwoTowers() {
-  const currentVolume = volumes.find(({ slug }) => slug === "the-two-towers");
-  console.log(currentVolume);
+export default function DetailsPage() {
+  const router = useRouter();
+  const { slug } = router.query;
+  const currentVolume = volumes.find(({ slug }) => volumes.slug === slug);
+
+  if (!currentVolume) {
+    return;
+  }
 
   return (
     <>
@@ -17,18 +23,13 @@ export default function TwoTowers() {
         {currentVolume.books[1].ordinal}
         <li>{currentVolume.books[1].title}</li>
       </ul>
+
       <Image
-        src="/images/the-two-towers.png"
+        src={`/images/${slug}.png`}
         width={140}
         height={230}
-        alt="The two towers cover"
+        alt={`${currentVolume.title} cover`}
       ></Image>
-
-      <br />
-
-      <Link href="/volumes/the-fellowship-of-the-ring">Previous Volume</Link>
-      <br />
-      <Link href="/volumes/the-return-of-the-king">Next Volume</Link>
     </>
   );
 }

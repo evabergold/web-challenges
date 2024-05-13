@@ -25,6 +25,11 @@ export default function ReturnKing() {
         height={230}
         alt="The return of the king cover"
       ></Image>
+
+      <br />
+
+      <Link href="/volumes/the-two-towers">Previous Volume</Link>
+      <br />
     </>
   );
 }

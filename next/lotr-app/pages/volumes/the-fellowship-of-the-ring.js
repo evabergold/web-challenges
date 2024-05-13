@@ -25,6 +25,9 @@ export default function Fellowship() {
         height={230}
         alt="The fellowship of the ring cover"
       ></Image>
+
+      <br />
+      <Link href="/volumes/the-two-towers">Next Volume</Link>
     </>
   );
 }
